@@ -16,6 +16,7 @@ end
 gem 'jquery-rails'
 gem 'therubyracer'
 gem 'sqlite3', '1.3.4', :group => :development
+gem 'gravatar_image_tag', '1.0.0.pre2'
 
 group :development do
   gem 'rspec-rails', '2.6.1'
