@@ -113,13 +113,32 @@ describe User do
       
       it "should return nil for an email address with no user" do
         nonexistant_user = User.authenticate("bar@foo.com", @attr[:password])
-        nonexistent_user.should be_nil
+        nonexistant_user.should be_nil
       end
       
       it "should return the user on email/password match" do
         matching_user = User.authenticate(@attr[:email], @attr[:password])
         matching_user.should == @user
       end
+    end
+  end
+  
+  describe "admin attribute" do
+    before(:each) do
+      @user = User.create!(@attr)
+    end
+    
+    it "should respond to admin" do
+      @user.should respond_to(:admin)
+    end
+    
+    it "should not be an admin by default" do
+      @user.should_not be_admin
+    end
+    
+    it "should be convertible to an admin" do
+      @user.toggle!(:admin)
+      @user.should be_admin
     end
   end
 end

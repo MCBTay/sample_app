@@ -37,8 +37,8 @@ describe "LayoutLinks" do
       before(:each) do
         @user = Factory(:user)
         visit signin_path
-        fill_in :email    :with => @user.email,
-        fill_in :password :with => @user.password,
+        fill_in :email,    :with => @user.email
+        fill_in :password, :with => @user.password
         click_button
       end
       
@@ -54,4 +54,5 @@ describe "LayoutLinks" do
                                            :content => "Profile")
       end
     end
+  end
 end
